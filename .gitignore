@@ -3,3 +3,6 @@
 
 # python virtual environment 
 .venv
+
+node_modules
+.react-router
