@@ -5,7 +5,6 @@ from bson import ObjectId
 
 router = APIRouter()
 
-# Create a new location
 @router.post("/locations")
 async def create_location(location: Location):
     new_location = location.dict()
@@ -16,7 +15,6 @@ async def create_location(location: Location):
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-# Get all locations
 @router.get("/locations")
 async def get_all_locations():
     try:
@@ -43,28 +41,6 @@ async def get_location(location_id: str):
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-@router.patch("/locations/{location_id}")
-async def update_location(location_id: str, location: Location):
-    try:
-        # Find the location by ID
-        existing_location = collection.find_one({"_id": location_id})
-        
-        if not existing_location:
-            raise HTTPException(status_code=404, detail="Location not found")
-        
-        # Prepare the update data (convert model to dictionary)
-        updated_location = location.dict(exclude_unset=True)  # Exclude fields not provided
-        
-        # Update the location in the MongoDB collection
-        result = collection.update_one({"_id": location_id}, {"$set": updated_location})
-        
-        if result.matched_count == 0:
-            raise HTTPException(status_code=404, detail="Location not found")
-        
-        return {"id": location_id, "message": "Location updated successfully!"}
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
-
 @router.delete("/locations")
 async def delete_all_locations():
     try:
@@ -72,5 +48,46 @@ async def delete_all_locations():
         if result.deleted_count == 0:
             return {"message": "No locations found to delete."}
         return {"message": f"Deleted {result.deleted_count} locations successfully!"}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@router.delete("/locations/{location_id}")
+async def delete_location(location_id: str):
+    try:
+        # Convert location_id to ObjectId
+        location_object_id = ObjectId(location_id)
+        
+        # Attempt to delete the location by its ObjectId
+        result = collection.delete_one({"_id": location_object_id})
+        
+        if result.deleted_count == 0:
+            raise HTTPException(status_code=404, detail="Location not found")
+        
+        return {"message": f"Location with ID {location_id} deleted successfully!"}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@router.patch("/locations/{location_id}")
+async def update_location(location_id: str, location: Location):
+    try:
+        # Convert location_id to ObjectId
+        location_object_id = ObjectId(location_id)
+        
+        # Find the existing location
+        existing_location = collection.find_one({"_id": location_object_id})
+        
+        if not existing_location:
+            raise HTTPException(status_code=404, detail="Location not found")
+        
+        # Prepare the update data (exclude unset fields)
+        updated_location = location.dict(exclude_unset=True)
+        
+        # Update the location in MongoDB
+        result = collection.update_one({"_id": location_object_id}, {"$set": updated_location})
+        
+        if result.matched_count == 0:
+            raise HTTPException(status_code=404, detail="Location not found")
+        
+        return {"id": location_id, "message": "Location updated successfully!"}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
