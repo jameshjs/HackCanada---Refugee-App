@@ -2,15 +2,13 @@ import time
 import os
 from PIL import Image
 from typing import Annotated, List, Dict
+from dotenv import load_dotenv
 
-
+load_dotenv()
 import re
 
 from fastapi import APIRouter, File, UploadFile, HTTPException, Form
 from fastapi.responses import FileResponse
-
-from pdf2image import convert_from_path
-import pytesseract
 
 from pypdf import PdfReader, PdfWriter
 from pypdf.constants import AnnotationDictionaryAttributes
@@ -19,7 +17,7 @@ import json
 from pydantic import BaseModel
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyDP9MMXOqUzXwbH1oTAa7pDlnPORei8GJg")
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 # generation_config = {
 #   "temperature": 1,
@@ -86,8 +84,6 @@ join_session = model_join.start_chat(
 pdf_parse_prompt.close()
 question_prompt.close()
 join_prompt.close()
-
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
 
 router = APIRouter(
     prefix="/document",
@@ -346,15 +342,15 @@ def pdf_form(upload_id):
 
 
 
-def pdf_ocr(upload_id):     
-    images = convert_from_path(f"uploads/doc-{upload_id}/document.pdf", poppler_path = r"C:/Program Files/poppler-24.08.0/Library/bin")
+# def pdf_ocr(upload_id):     
+#     images = convert_from_path(f"uploads/doc-{upload_id}/document.pdf", poppler_path = r"C:/Program Files/poppler-24.08.0/Library/bin")
 
-    result = ""
+#     result = ""
 
-    for image in images:
-        result += pytesseract.image_to_string(image)
+#     for image in images:
+#         result += pytesseract.image_to_string(image)
 
-    return result
+#     return result
 
 def generate_list(upload_id, json_content, language):
     # SEND TO AI!!

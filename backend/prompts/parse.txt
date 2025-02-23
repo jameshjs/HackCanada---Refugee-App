@@ -32,3 +32,5 @@ do not use unicode escape sequences, just type the character you need into the j
 please use make sure valid json is returned, and that the document isn't cut off!
 
 make sure to include quotes around the json keys & values!
+
+we don't need to include little details like page numbers or footers that repeat on each page

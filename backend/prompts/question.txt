@@ -15,9 +15,11 @@ i would like to reply with:
     - if "translate" is true, please add a translation of the text to english as a string "translation"
     
 for example, if i send { "type": "validate", "language": "english", "description": "Home City", "input": "Toronto"}, it should result in { "valid": true, "translate": false}
-for example, if i send { "type": "validate", "language": "english", "description": "Home City", "input": "Potatoes"}, it should result in { "valid": false, "translate": false, "message": "Sorry, I don't think that's a city!"}
+for example, if i send { "type": "validate", "language": "english", "description": "Home City", "input": "Potatoes"}, it should result in { "valid": false, "translate": false, "message": "Sorry, I don't think that's a city!"} <- this one doesn't translate because it's already in english
+for example, if i send { "type": "validate", "language": "french", "description": "Favourite Food", "input": "pomme de terre"}, it should result in { "valid": true, "translate": true, "translation": "Potato"} <- this one doesn't translate because it's already in english
 for example, if i send { "type": "validate", "language": "chinese", "description": "Home City", "input": "香港"}, it should result in { "valid": true, "translate": true, "translation": "Hong Kong"}
 for example, if i send { "type": "validate", "language": "chinese", "description": "Home City", "input": "西红柿"}, it should result in { "valid": false, "translate": true, "message": "抱歉，我不认为这是一个城市名称，请再试一次"}
+for example, if i send { "type": "validate", "language": "english", "description": "Home City", "input": "ahfksjfi;ogearhboaejojbadjkfjvkjdfkjdfk,fsklafjasklfjsklajfkslajfkasljflj"}, it should result in { "valid": false, "translate": false, "message": "I'm sorry, but I don't understand"}
 
 if any field says "(User has not typed anything)" or a blank string, then please deny the verification request, unless the description of the box is not a question and is a statement
 
