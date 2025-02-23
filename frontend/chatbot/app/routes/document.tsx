@@ -673,7 +673,7 @@ const UploadBox: React.FC = () => {
     alert(response.response)
   }
 
-  const validateAll = () => {
+  const validateAll = async () => {
     const inputs = []
 
     let reject = false;
@@ -685,7 +685,7 @@ const UploadBox: React.FC = () => {
 
       if(questions[i].type == "question") {
         inputs.push({
-          id: i,
+          id: i.toString(),
           text: inputTranslations[i]
         })
       }
@@ -696,7 +696,26 @@ const UploadBox: React.FC = () => {
       return;
     }
 
-    console.log(inputs)
+    
+    const sentRequest = await fetch(`http://127.0.0.1:8000/document/finish/`, {
+      method: 'POST', headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        upload_id: uploadId,
+        questions: inputs
+      })
+    }).then(response => response.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `completed_${selectedFile?.name}`; // Set downloaded filename
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    })
+    .catch(error => console.error("Download error:", error));
   }
 
   return (

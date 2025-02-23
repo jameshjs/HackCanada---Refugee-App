@@ -1,11 +1,14 @@
 import time
 import os
 from PIL import Image
-from typing import Annotated
+from typing import Annotated, List, Dict
+
 
 import re
 
 from fastapi import APIRouter, File, UploadFile, HTTPException, Form
+from fastapi.responses import FileResponse
+
 from pdf2image import convert_from_path
 import pytesseract
 
@@ -45,6 +48,7 @@ generation_config = {
 
 pdf_parse_prompt = open("prompts/parse.txt", "r", encoding='utf-8')
 question_prompt = open("prompts/question.txt", "r", encoding='utf-8')
+join_prompt = open("prompts/join.txt", "r", encoding='utf-8')
 
 model_pdf_parse = genai.GenerativeModel(
   model_name="gemini-2.0-flash-thinking-exp-01-21",
@@ -58,6 +62,11 @@ model_question = genai.GenerativeModel(
   generation_config=generation_config,
   system_instruction=question_prompt.read(),
 )
+model_join = genai.GenerativeModel(
+  model_name="gemini-2.0-flash-thinking-exp-01-21",
+  generation_config=generation_config,
+  system_instruction=join_prompt.read(),
+)
 
 pdf_parse_session = model_pdf_parse.start_chat(
   history=[
@@ -69,8 +78,14 @@ question_session = model_question.start_chat(
     ]
 )
 
+join_session = model_join.start_chat(
+    history=[
+    ]
+)
+
 pdf_parse_prompt.close()
 question_prompt.close()
+join_prompt.close()
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
 
@@ -91,6 +106,12 @@ class QuestionRequest(BaseModel):
     question: str
     upload_id: int
     question_id: int
+
+
+
+class JoinRequest(BaseModel):
+    upload_id: int
+    questions: List[Dict[str, str]]
 
 def clean_unicode(input_str):
     print(input_str)
@@ -183,6 +204,49 @@ def ask(request: QuestionRequest):
 
     return json.loads(ask_ai(prompt))
 
+@router.post("/finish")
+def finish(request: JoinRequest):
+    user_answers = request.questions
+    upload_id = request.upload_id
+
+    question_list = []
+
+    with open(f"uploads/doc-{upload_id}/questions.json", "r", encoding='utf-8') as f:
+        question_list = json.loads(f.read())
+
+    submit_list = []
+
+    print(question_list)
+
+    for element in user_answers:
+
+        submit_list.append({
+            "user_input": element["text"],
+            "question": question_list["items"][int(element["id"])]
+        })
+
+    reader = PdfReader(f"uploads/doc-{upload_id}/document.pdf")
+    fields = list(reader.get_form_text_fields().keys())
+
+    data = {
+        "questions": submit_list,
+        "fields": fields
+    }
+
+    result = json.loads(ai_join(data))
+    
+    writer = PdfWriter()
+    writer.append(reader)
+
+    for page in writer.pages:
+        writer.update_page_form_field_values(page, result, auto_regenerate=False)
+
+    with open(f"uploads/doc-{upload_id}/result.pdf", "wb") as output_stream:
+      writer.write(output_stream)
+
+    # return result
+    return FileResponse(f"uploads/doc-{upload_id}/result.pdf", filename="result.pdf", media_type="application/pdf")
+
 
 @router.get("/document/{upload_id}/{question_id}")
 def question(upload_id, question_id):
@@ -204,7 +268,12 @@ def ask_ai(prompt):
     return text[text.find("\n") : text.rfind("\n")]
   
 
+def ai_join(prompt):
+    
+    response = join_session.send_message(json.dumps(prompt))
+    text = response.text
 
+    return text[text.find("\n") : text.rfind("\n")]
 
 @router.post("/upload")
 def upload(file: UploadFile = File(...), language: Annotated[str, Form()] = "English en"):

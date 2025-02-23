@@ -1,0 +1,6 @@
+hello!
+
+i'm going to give you a list of questions with the users answers, and a second list of available text input fields within a document
+may you please do your best to give me a list with the same keys as the second list with values determined from the first list?? thanks
+
+the output should be in json with no other next please
