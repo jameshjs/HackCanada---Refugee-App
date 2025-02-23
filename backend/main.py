@@ -10,7 +10,7 @@ import uvicorn
 load_dotenv()
 
 # Replace the hardcoded API key with environment variable
-openai.api_key = "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"
+openai.api_key = OPEN_API_KEY
 app = FastAPI()
 
 # Add CORS middleware
