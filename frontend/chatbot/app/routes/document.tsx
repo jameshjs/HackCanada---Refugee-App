@@ -479,6 +479,7 @@ const UploadBox: React.FC = () => {
 
   const [input, setInput] = useState<Record<number, string>>({});
   const [valid, setValid] = useState<Record<number, boolean>>({});
+  const [inputTranslations, setInputTranslations] = useState<Record<number, string>>({});
 
   const getString = (tag: string) => {
     const selectedLanguage = language || "en"
@@ -532,6 +533,9 @@ const UploadBox: React.FC = () => {
 
     delete valid[index];
     setValid({ ...valid })
+
+    delete inputTranslations[index];
+    setInputTranslations({ ...inputTranslations })
   }
 
   const handleValidate = async (index: number) => {
@@ -553,10 +557,13 @@ const UploadBox: React.FC = () => {
     if (!response.valid) {
       alert(response.message)
     } else {
-      const updated = { ...valid }
-      updated[index] = true;
-
-      setValid(updated)
+      const updatedValid = { ...valid }
+      updatedValid[index] = true;
+      setValid(updatedValid)
+      
+      const updatedInputTranslation = { ...inputTranslations }
+      updatedInputTranslation[index] = response.translation || input[index];
+      setInputTranslations(updatedInputTranslation)
     }
 
     console.log(response)
@@ -582,11 +589,20 @@ const UploadBox: React.FC = () => {
   }
 
   const validateAll = () => {
+    const inputs = []
+
     let reject = false;
     for (let i = 0; i < questions.length; i++) {
       if (questions[i].type == "question" && !valid[i]) {
         reject = true;
         break;
+      }
+
+      if(questions[i].type == "question") {
+        inputs.push({
+          id: i,
+          text: inputTranslations[i]
+        })
       }
     }
 
@@ -594,6 +610,8 @@ const UploadBox: React.FC = () => {
       alert(getString("notAllValid"))
       return;
     }
+
+    console.log(inputs)
   }
 
   return (

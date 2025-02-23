@@ -125,6 +125,8 @@ def validate(request: ValidateRequest):
     user_input = request.user_input
     question_id = request.question_id
 
+    context = ""
+
     properties = {"language": "English en"}
     with open(f"uploads/doc-{upload_id}/properties.json", "r", encoding='utf-8') as f:
         properties = json.loads(f.read())
@@ -134,6 +136,10 @@ def validate(request: ValidateRequest):
     with open(f"uploads/doc-{upload_id}/questions.json", "r", encoding='utf-8') as f:
         question_list = json.loads(f.read())
 
+    for i in range(question_id):
+        if "context" in question_list["items"][i]:  
+            context += question_list["items"][i]["context"] + " "
+
     question = question_list["items"][question_id]
 
     prompt = {
@@ -141,7 +147,7 @@ def validate(request: ValidateRequest):
         "context": (question["description"] or "") + " " + (question["context"] or ""),
         "description": question["title"],
         "input": user_input,
-        
+        "context": context,
         "language": properties["language"]
     }
 
