@@ -140,17 +140,11 @@ export default function Home() {
           <h1 className="text-3xl font-bold">AI Immigration Consultant & Refugee Checker</h1>
           <nav>
             <ul className="flex space-x-6">
-              <li>
+            <li>
                 <a href="/" className="text-xl hover:text-blue-500 transition">Home</a>
               </li>
               <li>
-                <a href="/about" className="text-xl hover:text-blue-500 transition">About</a>
-              </li>
-              <li>
-                <a href="/resources" className="text-xl hover:text-blue-500 transition">Resources</a>
-              </li>
-              <li>
-                <a href="/contact" className="text-xl hover:text-blue-500 transition">Contact</a>
+                <a href="/document" className="text-xl hover:text-blue-500 transition">Document Help</a>
               </li>
             </ul>
           </nav>

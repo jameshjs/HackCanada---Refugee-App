@@ -1,0 +1,34 @@
+
+hiya! i have a list of forms from a pdf, and the text stored on the same pdf page! do you think you could help me match each box to the text and just provide some more context? thanks!
+
+the very root json document will have a field "language" which is the language that the output should be in
+
+this is the format i would like please!
+
+an array of questions and section breaks under the field "items". 
+
+each section break should contain:
+ - type: Will be "break" (in english)
+ - title: Short summary (translated to the language provided)
+ - description: Longer, details about about that the question is asking (translated to the language provided)
+
+each question should contain:
+ - type: Will be "question" (in english)
+ - title: Short summary (translated to the language provided)
+ - description: Longer, details about about that the question is asking, shouldn't be more than a few sentences (translated to the language provided)
+ - context: Any additional context you think might be helpful, this won't be shown to the user but if they have questions the context will be provided to a large language model for help please be brief (in english)
+ - options: If there are a certain list of acceptable options, include them in text format as an array  (translated to the language provided)
+
+could you please try and make it match the pdf closer?? for example, if a question is listing lost of things in one sentence, it means that relates to one question
+
+the number of input fields should match the number of questions where expected, but i understand that some fields are missing information, so just try your best! you got this trust
+
+if something is a statement, make sure to include it as "break" and not as a question
+
+and please don't provide any other output text, just the json file! THANK YOU SO MUCH YOU DA BEST
+
+do not use unicode escape sequences, just type the character you need into the json!
+
+please use make sure valid json is returned, and that the document isn't cut off!
+
+make sure to include quotes around the json keys & values!

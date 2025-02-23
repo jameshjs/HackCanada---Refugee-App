@@ -605,18 +605,12 @@ const UploadBox: React.FC = () => {
           <h1 className="text-3xl font-bold">AI Immigration Consultant & Refugee Checker</h1>
           <nav>
             <ul className="flex space-x-6">
-              <li>
-                <a href="http://localhost:5174" className="text-xl hover:text-blue-500 transition">Home</a>
+            <li>
+                <a href="/" className="text-xl hover:text-blue-500 transition">Home</a>
               </li>
               <li>
-                <a href="http://localhost:5173" className="text-xl hover:text-blue-500 transition">Document Help</a>
+                <a href="/document" className="text-xl hover:text-blue-500 transition">Document Help</a>
               </li>
-              {/* <li>
-                <a href="/resources" className="text-xl hover:text-blue-500 transition">Resources</a>
-              </li>
-              <li>
-                <a href="/contact" className="text-xl hover:text-blue-500 transition">Contact</a>
-              </li> */}
             </ul>
           </nav>
         </div>
@@ -637,18 +631,12 @@ const UploadBox: React.FC = () => {
           <h1 className="text-3xl font-bold">AI Immigration Consultant & Refugee Checker</h1>
           <nav>
             <ul className="flex space-x-6">
-              <li>
-                <a href="http://localhost:5174" className="text-xl hover:text-blue-500 transition">Home</a>
+            <li>
+                <a href="/" className="text-xl hover:text-blue-500 transition">Home</a>
               </li>
               <li>
-                <a href="http://localhost:5173" className="text-xl hover:text-blue-500 transition">Document Help</a>
+                <a href="/document" className="text-xl hover:text-blue-500 transition">Document Help</a>
               </li>
-              {/* <li>
-                <a href="/resources" className="text-xl hover:text-blue-500 transition">Resources</a>
-              </li>
-              <li>
-                <a href="/contact" className="text-xl hover:text-blue-500 transition">Contact</a>
-              </li> */}
             </ul>
           </nav>
         </div>
@@ -692,10 +680,10 @@ const UploadBox: React.FC = () => {
                 <nav>
             <ul className="flex space-x-6">
               <li>
-                <a href="http://localhost:5174" className="text-xl hover:text-blue-500 transition">Home</a>
+                <a href="/" className="text-xl hover:text-blue-500 transition">Home</a>
               </li>
               <li>
-                <a href="http://localhost:5173" className="text-xl hover:text-blue-500 transition">Document Help</a>
+                <a href="/document" className="text-xl hover:text-blue-500 transition">Document Help</a>
               </li>
               {/* <li>
                 <a href="/resources" className="text-xl hover:text-blue-500 transition">Resources</a>
@@ -749,7 +737,7 @@ const UploadBox: React.FC = () => {
               onClick={() => { validateAll() }}
               className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition"
             >
-              ${getString("submit")}
+              {getString("submit")}
             </button>
           </div>
         </div>}

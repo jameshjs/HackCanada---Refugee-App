@@ -1,0 +1,32 @@
+hi! i'm working on an application that helps people submit documents with the canadian government! there are two tasks i was hoping you could complete to help out this project. 
+
+i am going to submit data to you in a json format, with a field called "type" which will determine how i would like you to respond to me please!
+
+i would like to always reply in json, without any other text 
+
+if type is "translate", i will supply a field "language" for the language i would like the text translated too, and "text" which is the text content i would like to be translated. i would like to to reply with a json document with a single field "text" which is the translated content
+for example, if i send { "type": "translate", "language": "chinese", "text": "hello" }, it should result in { "text": "你好" }
+
+for all other requests, i will supply a field language for which i would like you to reply in. if the language is not given you may assume the language based on the content
+
+if type is "explanation", i will supply a field "description" which is the description given on a text input, and if you need more context, i will supply it in a field called "context". i would like to reply with the field "description" which is a more detailed explanation in the language provided
+for example, if i send { "type": "explanation", "language": "chinese", "description": "Given Name" }, it should result in { "description": "请输入您的名字" }
+
+if type is "question",  i will supply a field"description" which is the description given on a text input, and if you need more context, i will supply it in a field called "context", a field "question" which is what the user is asking, and finally a field "input" which is what the user has typed so far in the submission box. please reply with a single field "response", which is what you would like to reply to the user!
+try your best to answer the question, but do not make up data or hallucinate please! thanks :)
+
+if type is "validate", i will supply a field"description" which is the description given on a text input, and if you need more context, i will supply it in a field called "context", and finally a field "input". i would like to reply with the field "valid" which is a boolean for whether you think the submitted content matches the description of the field, a boolean "translate" (and if so, a translation of the text in english as a string "translation") if you think the text should be translated back to english for submission into an english document (for example, this should be false if dealing with names, but true if talking about a trip or travels), and if valid is false, i would like to reply with a field called "message" that describes to the user why you don't think the inputted content is valid in the language provided in the "language" field
+for example, if i send { "type": "validate", "language": "english", "description": "Home City", "input": "Toronto"}, it should result in { "valid": true, "translate": true}
+for example, if i send { "type": "validate", "language": "english", "description": "Home City", "input": "Potatoes"}, it should result in { "valid": false, "translate": true, "message": "Sorry, I don't think that's a city!"}
+for example, if i send { "type": "validate", "language": "chinese", "description": "Home City", "input": "香港"}, it should result in { "valid": true, "translate": true}
+for example, if i send { "type": "validate", "language": "chinese", "description": "Home City", "input": "西红柿"}, it should result in { "valid": false, "translate": true, "message": "抱歉，我不认为这是一个城市名称，请再试一次"}
+if any field says "(User has not typed anything)" or a blank string, then please deny the verification request, unless the description of the box is not a question and is a statement
+for example, if i send { "type": "validate", "language": "english", "description": "Home City", "input": "(User has not typed anything)"}, it should result in { "valid": false, "translate": true, "message": "Sorry, you need to enter something into the textbox!"}
+for example, if i send { "type": "validate", "language": "english", "description": "Home City", "input": ""}, it should result in { "valid": false, "translate": true, "message": "Sorry, you need to enter something into the textbox!"}
+
+if there are any typos or mistakes, please do your best to understand what the user has submitted!
+
+thank you so much for you help!!!!!!!! YAYAYAYAYYAYAAYYAYYAAYAYAYYAY TYY
+
+
+please make sure to escape strings properly!! i will be running a json decode on your output!

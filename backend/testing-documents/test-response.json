@@ -1,0 +1,376 @@
+[
+  {
+    "type": "break",
+    "title": "Form Introduction",
+    "description": "Overview and instructions for completing the Basis of Claim Form for refugee protection in Canada.",
+    "text": "This form is for persons claiming refugee protection in Canada. You must answer all questions on this form. If you are making your claim at an immigration office inside Canada, complete this form and bring it with you. If you made your claim on arrival at a port of entry, you must provide the completed form to the Immigration and Refugee Board of Canada (IRB) within 15 calendar days. Failure to submit the form on time may result in your claim being declared abandoned. You have the right to be represented by counsel at your own expense. You are responsible for providing documents to support your claim. WARNING: Providing false or misleading information is a serious offence and may result in your claim being rejected or any favorable decision revoked."
+  },
+  {
+    "type": "question",
+    "title": "Client I.D. Number",
+    "description": "Enter the unique identifier assigned to your case.",
+    "context": "Used for tracking your claim throughout the immigration process.",
+    "options": [],
+    "text": "Enter your Client I.D. Number as provided by the immigration authorities."
+  },
+  {
+    "type": "question",
+    "title": "Claimant's Full Name",
+    "description": "Provide your legal first name(s) and family name(s) as they appear on official documents.",
+    "context": "Must match identification documents submitted with your claim.",
+    "options": [],
+    "text": "Enter your full legal name exactly as it appears on your official identification documents."
+  },
+  {
+    "type": "break",
+    "title": "Personal Information",
+    "description": "Core biographical information required for identity verification.",
+    "text": "This section collects personal details such as your name, date of birth, sex, nationality, ethnic group, religion, and languages spoken. This information is used to verify your identity and understand your background."
+  },
+  {
+    "type": "question",
+    "title": "Given or First Name(s)",
+    "description": "Enter your given or first name(s).",
+    "context": "Used to verify your identity.",
+    "options": [],
+    "text": "Provide your given or first name(s) as they appear on your official documents."
+  },
+  {
+    "type": "question",
+    "title": "Family or Last Name(s)",
+    "description": "Enter your family or last name(s)/surname(s).",
+    "context": "Used to verify your identity.",
+    "options": [],
+    "text": "Provide your family or last name(s)/surname(s) as they appear on your official documents."
+  },
+  {
+    "type": "question",
+    "title": "Date of Birth",
+    "description": "Enter your birthdate in YYYY/MM/DD format.",
+    "context": "Used for age verification and identity confirmation.",
+    "options": [],
+    "text": "Enter your date of birth in the format YYYY/MM/DD as it appears on your official documents."
+  },
+  {
+    "type": "question",
+    "title": "Sex Identified on Passport",
+    "description": "Select the sex listed on your passport.",
+    "context": "Collected for identity verification.",
+    "options": ["Male", "Female", "Other"],
+    "text": "Indicate the sex identified on your passport. If you do not identify with this sex/gender, you may self-identify in the next question."
+  },
+  {
+    "type": "question",
+    "title": "Self-Identified Sex/Gender",
+    "description": "If you do not identify with the sex/gender on your passport, you may self-identify your sex/gender.",
+    "context": "Respects gender diversity and self-identification.",
+    "options": [],
+    "text": "If you do not identify with the sex/gender on your passport, you may self-identify your sex/gender here."
+  },
+  {
+    "type": "question",
+    "title": "Nationality, Ethnic and Racial Group or Tribe",
+    "description": "Enter your nationality, ethnic and racial group or tribe.",
+    "context": "Used to understand your background and identity.",
+    "options": [],
+    "text": "Provide your nationality, ethnic and racial group, or tribe as applicable."
+  },
+  {
+    "type": "question",
+    "title": "Religion and Denomination or Sect",
+    "description": "Enter your religion and denomination or sect.",
+    "context": "Used to understand your background and identity.",
+    "options": [],
+    "text": "Provide your religion and denomination or sect as applicable."
+  },
+  {
+    "type": "question",
+    "title": "Languages and Dialects Spoken",
+    "description": "List all languages and dialects you speak.",
+    "context": "Used to determine language needs for your hearing.",
+    "options": [],
+    "text": "List all languages and dialects you speak, including any that may require interpretation services."
+  },
+  {
+    "type": "break",
+    "title": "Basis of Refugee Claim",
+    "description": "Detailed narrative explaining persecution fears and reasons for seeking protection.",
+    "text": "This section requires you to explain why you are claiming refugee protection. Include all relevant details, starting with the oldest information and ending with the newest. Provide dates, names, and places wherever possible. If your claim is based on the same information as a family member's, you may reference their file number instead of repeating the information."
+  },
+  {
+    "type": "question",
+    "title": "Past Harm or Mistreatment",
+    "description": "Have you or your family ever been harmed, mistreated, or threatened by any person or group?",
+    "context": "Critical for establishing well-founded fear of persecution.",
+    "options": ["Yes", "No"],
+    "text": "Indicate whether you or your family have ever been harmed, mistreated, or threatened. If 'Yes', provide detailed explanations including what happened, when, who caused it, and why."
+  },
+  {
+    "type": "question",
+    "title": "Explanation of Past Harm",
+    "description": "If 'Yes', explain in detail what happened, when, who caused it, and why.",
+    "context": "Provides evidence for your claim.",
+    "options": [],
+    "text": "Provide a detailed explanation of any harm, mistreatment, or threats you or your family have experienced. Include dates, names, and places wherever possible."
+  },
+  {
+    "type": "question",
+    "title": "Future Risk of Harm",
+    "description": "If you returned to your country, do you believe you would be harmed, mistreated, or threatened?",
+    "context": "Assesses ongoing risk.",
+    "options": ["Yes", "No"],
+    "text": "Indicate whether you believe you would be harmed, mistreated, or threatened if you returned to your country. If 'Yes', explain in detail what would happen, who would harm you, and why."
+  },
+  {
+    "type": "question",
+    "title": "Explanation of Future Risk",
+    "description": "If 'Yes', explain in detail what would happen, who would harm you, and why.",
+    "context": "Provides evidence for your claim.",
+    "options": [],
+    "text": "Provide a detailed explanation of the risks you would face if you returned to your country. Include specific details about who would harm you and why."
+  },
+  {
+    "type": "question",
+    "title": "Sought Protection in Home Country",
+    "description": "Did you ask any authorities in your country to protect or assist you?",
+    "context": "Assesses whether state protection was sought.",
+    "options": ["Yes", "No"],
+    "text": "Indicate whether you sought protection or assistance from authorities in your country. If 'Yes', explain whom you approached, what steps you took, and what happened."
+  },
+  {
+    "type": "question",
+    "title": "Explanation of Protection Sought",
+    "description": "If 'Yes', explain whom you approached, what steps you took, and what happened.",
+    "context": "Provides evidence for your claim.",
+    "options": [],
+    "text": "Provide a detailed explanation of any attempts to seek protection or assistance from authorities in your country. Include names, dates, and outcomes."
+  },
+  {
+    "type": "question",
+    "title": "Internal Relocation",
+    "description": "Did you move to another part of your country to seek safety?",
+    "context": "Assesses availability of internal protection alternatives.",
+    "options": ["Yes", "No"],
+    "text": "Indicate whether you moved to another part of your country to seek safety. If 'Yes', explain why you left and why you could not live there."
+  },
+  {
+    "type": "question",
+    "title": "Explanation of Internal Relocation",
+    "description": "If 'Yes', explain why you left and why you could not live there.",
+    "context": "Provides evidence for your claim.",
+    "options": [],
+    "text": "Provide a detailed explanation of any attempts to relocate within your country for safety. Include reasons for leaving and why you could not stay."
+  },
+  {
+    "type": "question",
+    "title": "Date of Departure",
+    "description": "When did you leave your country? (Provide dates: YYYY/MM/DD).",
+    "context": "Used to establish timeline of events.",
+    "options": [],
+    "text": "Provide the exact date you left your country in the format YYYY/MM/DD."
+  },
+  {
+    "type": "question",
+    "title": "Reason for Departure Timing",
+    "description": "Why did you leave at that time and not sooner or later?",
+    "context": "Provides context for your claim.",
+    "options": [],
+    "text": "Explain why you left your country at the specific time you did, and not sooner or later."
+  },
+  {
+    "type": "question",
+    "title": "Third Country Residency",
+    "description": "Did you move to another country (other than Canada) to seek safety?",
+    "context": "Determines potential responsibility of other nations under safe third country rules.",
+    "options": ["Yes", "No"],
+    "text": "Indicate whether you moved to another country (other than Canada) to seek safety. If 'Yes', provide details about the country, duration of stay, and whether you claimed refugee protection there."
+  },
+  {
+    "type": "question",
+    "title": "Explanation of Third Country Residency",
+    "description": "If 'Yes', provide details about the country, duration of stay, and whether you claimed refugee protection there.",
+    "context": "Provides evidence for your claim.",
+    "options": [],
+    "text": "Provide a detailed explanation of any time spent in another country (other than Canada) to seek safety. Include the name of the country, dates of stay, and whether you claimed refugee protection there."
+  },
+  {
+    "type": "question",
+    "title": "Additional Details",
+    "description": "Provide any other details that you think are important for your claim.",
+    "context": "Allows you to include any additional relevant information.",
+    "options": [],
+    "text": "Include any additional details that you believe are important for your refugee protection claim. Use additional sheets if necessary."
+  },
+  {
+    "type": "break",
+    "title": "Family Information",
+    "description": "Details about relatives included in the claim and family relationships.",
+    "text": "This section collects information about your relatives, including spouses, children, parents, and siblings. This information is used to understand your family structure and connections."
+  },
+  {
+    "type": "question",
+    "title": "Children Claiming Protection",
+    "description": "Are children under 18 years old claiming refugee protection with you?",
+    "context": "Used to assess family claims.",
+    "options": ["Yes", "No"],
+    "text": "Indicate whether children under 18 years old are claiming refugee protection with you. If 'Yes', provide details about their relationship to you and any legal documents."
+  },
+  {
+    "type": "question",
+    "title": "Legal Documents for Children",
+    "description": "If you are not the child’s parent, do you have legal documents or written consent allowing you to take care of or travel with the child?",
+    "context": "Required to establish guardianship and prevent child trafficking concerns.",
+    "options": ["Yes", "No"],
+    "text": "If you are not the child’s parent, provide details of any legal documents or written consent allowing you to take care of or travel with the child."
+  },
+  {
+    "type": "question",
+    "title": "Risk to Children",
+    "description": "If a child under 6 is claiming protection with you, explain why they would be at risk if returned to their country.",
+    "context": "Provides evidence specific to the child’s situation.",
+    "options": [],
+    "text": "Provide a detailed explanation of why a child under 6 years old claiming protection with you would be at risk if returned to their country. Include only information specific to the child’s situation."
+  },
+  {
+    "type": "break",
+    "title": "Countries at Risk",
+    "description": "List of countries where you believe you are at risk of serious harm.",
+    "text": "This section requires you to list the countries where you believe you are at risk of serious harm. This information is used to assess the geographical scope of your claim."
+  },
+  {
+    "type": "question",
+    "title": "Countries at Risk",
+    "description": "List the country or countries where you believe you are at risk of serious harm.",
+    "context": "Used to assess the geographical scope of your claim.",
+    "options": [],
+    "text": "List all countries where you believe you are at risk of serious harm. Provide as much detail as possible."
+  },
+  {
+    "type": "break",
+    "title": "Family Details",
+    "description": "Information about your relatives, including spouses, children, parents, and siblings.",
+    "text": "This section collects detailed information about your relatives, including their names, relationships, dates of birth, citizenship, and places of residence. This information is used to understand your family structure and connections."
+  },
+  {
+    "type": "question",
+    "title": "Family Members",
+    "description": "List your relatives, including their names, relationships, dates of birth, citizenship, and places of residence.",
+    "context": "Used to understand your family structure and connections.",
+    "options": [],
+    "text": "Provide detailed information about your relatives, including their full names, relationships to you, dates of birth, citizenship, and places of residence. Use additional sheets if necessary."
+  },
+  {
+    "type": "break",
+    "title": "Citizenship Information",
+    "description": "Details about your citizenship status and how it was acquired.",
+    "text": "This section collects information about your citizenship status, including the countries of which you are or have been a citizen, and how citizenship was acquired. This information is used to verify your nationality and citizenship history."
+  },
+  {
+    "type": "question",
+    "title": "Citizenship Details",
+    "description": "List each country of which you are or have been a citizen, including dates and how citizenship was acquired.",
+    "context": "Used to verify your nationality and citizenship history.",
+    "options": [],
+    "text": "Provide detailed information about your citizenship, including the countries of which you are or have been a citizen, the dates citizenship was acquired, and how it was acquired (e.g., by birth, marriage, etc.)."
+  },
+  {
+    "type": "break",
+    "title": "Previous Protection Claims",
+    "description": "Information about any previous refugee protection or asylum claims.",
+    "text": "This section collects information about any previous refugee protection or asylum claims made by you or your relatives. This information is used to assess your claim history."
+  },
+  {
+    "type": "question",
+    "title": "Previous Claims",
+    "description": "Provide details of any previous refugee protection or asylum claims made by you or your relatives.",
+    "context": "Used to assess your claim history.",
+    "options": [],
+    "text": "Provide detailed information about any previous refugee protection or asylum claims made by you or your relatives, including the dates of the claims, the countries where they were made, and the outcomes."
+  },
+  {
+    "type": "break",
+    "title": "Visa Applications",
+    "description": "Information about any visa applications to Canada.",
+    "text": "This section collects information about any visa applications you have made to Canada. This information is used to assess your immigration history."
+  },
+  {
+    "type": "question",
+    "title": "Visa Applications",
+    "description": "Did you apply for a visa to enter Canada? If yes, provide details including date, type, and outcome.",
+    "context": "Used to assess your immigration history.",
+    "options": ["Yes", "No"],
+    "text": "Indicate whether you have applied for a visa to enter Canada. If 'Yes', provide details including the date of application, type of visa, and outcome."
+  },
+  {
+    "type": "break",
+    "title": "Contact Information",
+    "description": "Your current address and contact details in Canada.",
+    "text": "This section collects your current address and contact details in Canada. This information is used to contact you regarding your claim."
+  },
+  {
+    "type": "question",
+    "title": "Address in Canada",
+    "description": "Provide your current street address, city, province, postal code, and telephone number.",
+    "context": "Used to contact you regarding your claim.",
+    "options": [],
+    "text": "Provide your current street address, city, province, postal code, and telephone number in Canada. If you move, you must inform the IRB immediately."
+  },
+  {
+    "type": "break",
+    "title": "Legal Representation",
+    "description": "Information about counsel assisting with your refugee claim.",
+    "text": "This section collects information about any counsel (e.g., lawyer, immigration consultant) assisting with your refugee claim. This information is used to verify legal representation."
+  },
+  {
+    "type": "question",
+    "title": "Counsel Details",
+    "description": "Provide the name, address, and contact information of your counsel, if applicable.",
+    "context": "Used to verify legal representation.",
+    "options": [],
+    "text": "Provide the name, address, and contact information of your counsel, if applicable. If your counsel helped you complete this form or will represent you at your hearing, indicate this as well."
+  },
+  {
+    "type": "break",
+    "title": "Language and Interpreter",
+    "description": "Preferred language for your hearing and interpreter needs.",
+    "text": "This section collects information about your preferred language for the hearing and any interpreter needs. This information is used to accommodate your language needs."
+  },
+  {
+    "type": "question",
+    "title": "Preferred Language",
+    "description": "Choose the official language (English or French) you would like the IRB to use with you.",
+    "context": "Used to accommodate your language needs.",
+    "options": ["English", "French"],
+    "text": "Choose the official language (English or French) you would like the IRB to use with you during your hearing and in documents."
+  },
+  {
+    "type": "question",
+    "title": "Interpreter Needs",
+    "description": "If you need an interpreter, specify the language and dialect.",
+    "context": "Used to arrange interpretation services for your hearing.",
+    "options": [],
+    "text": "If you do not understand English or French, specify the language and dialect you need for interpretation. If you do not need an interpreter, write 'N/A'."
+  },
+  {
+    "type": "break",
+    "title": "Declarations",
+    "description": "Legal affirmations regarding the truthfulness of information provided.",
+    "text": "This section includes legal declarations that you must sign to certify that the information provided is complete, true, and correct. If you required an interpreter to complete the form, the interpreter must also sign a declaration."
+  },
+  {
+    "type": "question",
+    "title": "Claimant's Declaration",
+    "description": "Sign to certify that all information provided is complete, true, and correct.",
+    "context": "Legal document with equivalent weight to sworn testimony.",
+    "options": [],
+    "text": "Sign to certify that all information provided in this form is complete, true, and correct. Your declaration has the same force and effect as if made under oath. WARNING: Providing false or misleading information is a serious offence and may result in your claim being rejected or any favorable decision revoked."
+  },
+  {
+    "type": "question",
+    "title": "Interpreter's Declaration",
+    "description": "If applicable, the interpreter must sign to certify accurate interpretation of the form.",
+    "context": "Ensures the claimant fully understood the form and questions.",
+    "options": [],
+    "text": "If you required an interpreter to complete this form, the interpreter must sign to certify that they accurately interpreted the entire content of the form and all attached documents. The interpreter must also confirm that they are proficient in both languages and were able to communicate effectively with you."
+  }
+]
