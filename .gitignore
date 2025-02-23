@@ -8,3 +8,7 @@ node_modules
 .react-router
 # python cache files
 __pycache__
+
+.env
+**/.env
+backend/.env
